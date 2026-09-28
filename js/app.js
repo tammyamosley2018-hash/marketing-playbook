@@ -358,7 +358,7 @@ function vResearch(scr) {
     return `<section class="card">${eyebrow(scr)}<h1>${esc(scr.title)}</h1>
       <p class="busy"><span class="dots"></span><span id="busy-label">${esc(busyLabel(scr))}</span></p>
       <ul class="search-log" id="search-log">${searchLog()}</ul>
-      <p class="note">This usually takes 2–4 minutes. Please keep this page open.</p>
+      <p class="note">This usually takes about 5 minutes. Please keep this page open.</p>
       <article class="draft prose streaming" id="stream">${md(busy.text)}</article></section>`;
   }
   if (!draft) {
@@ -372,7 +372,7 @@ function vResearch(scr) {
         <li>Your top competitors and what they charge</li>
         <li>What makes people ready to buy right now</li>
       </ul>
-      <p class="note">It takes about 2–4 minutes. Keep this page open while I work.</p>
+      <p class="note">It takes about 5 minutes. Keep this page open while I work — grab a cup of tea!</p>
       ${errorBox(scr)}
       <div class="actions">${backBtn()}<button class="btn primary" data-act="research">Start my research →</button></div>
     </section>`;

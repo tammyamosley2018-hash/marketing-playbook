@@ -76,6 +76,12 @@ export async function generate(body, { onText, onSearch, signal } = {}) {
       if (b && data.index in partialJson) {
         try { b.input = JSON.parse(partialJson[data.index] || "{}"); } catch { b.input = {}; }
         if (b.type === "server_tool_use" && b.name === "web_search" && b.input.query) onSearch?.(b.input.query);
+        // Batched searches run inside code; pull the query strings out of it.
+        if (b.type === "server_tool_use" && b.name !== "web_search" && /search/i.test(b.input.code || "")) {
+          const queries = [...(b.input.code.match(/queries\s*=\s*\[([\s\S]*?)\]/)?.[1] || "").matchAll(/["']([^"'\n]{4,120})["']/g)].map((m) => m[1]);
+          if (queries.length) queries.forEach((q) => onSearch?.(q));
+          else onSearch?.("a batch of web searches");
+        }
       }
     } else if (data.type === "message_delta") {
       if (data.delta?.stop_reason) stopReason = data.delta.stop_reason;
