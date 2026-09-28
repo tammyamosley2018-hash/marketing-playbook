@@ -1,0 +1,27 @@
+.admin { max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; }
+.btn.light { color: var(--cream); }
+.btn.light:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+.row .field { flex: 1 1 220px; }
+.new-link { margin-top: 16px; background: var(--paper); border-radius: 12px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.new-link code { font-size: .92rem; overflow-wrap: anywhere; flex: 1 1 260px; }
+.clients { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.clients th { text-align: left; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.clients td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.clients td.name { font-weight: 600; }
+.clients .progress { display: flex; align-items: center; gap: 10px; min-width: 160px; }
+.clients .progress .bar { flex: 1; height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.clients .progress .bar i { display: block; height: 100%; background: var(--brown); }
+.clients .when { color: var(--muted); font-size: .88rem; white-space: nowrap; }
+.pill { font-size: .78rem; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--paper); color: var(--muted); white-space: nowrap; }
+.pill.done { background: #e4f1e7; color: var(--ok); }
+.small { padding: 7px 12px; font-size: .88rem; }
+.empty { color: var(--muted); padding: 16px 0; }
+.detail-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+@media (max-width: 700px) {
+  .admin { padding: 16px 16px 60px; }
+  .clients thead { display: none; }
+  .clients tr { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .clients td { border: 0; padding: 2px 0; }
+  .clients td.progress-cell { grid-column: 1 / -1; }
+}
